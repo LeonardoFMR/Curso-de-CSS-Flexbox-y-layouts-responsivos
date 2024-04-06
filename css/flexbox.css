@@ -1,0 +1,112 @@
+/* Cabecera */
+.cabecera__container{
+    display: flex; /* Inicializa los flex box */
+    justify-content: space-between;  /* Los elementos se alinean con el mismo espaciado entre ellos */
+    align-items: center; /* Los elemntos se centran en el container */
+    position: fixed; /* Se fija la posición */
+    top:0; /* Posisión de la cabecera */
+}
+
+
+.cabecera__buscar__item{
+    display:none;
+}
+
+/* Menú */
+.menu__container{
+    
+    position: fixed; /* Se fija la posición */
+    bottom: 0% ; /*Distancia con respecto al borde inferior de la página */
+    height: 75px; /* Establece el máximo de la altura */
+    width: 100%; /* Establece el máximo del ancho, en este caso al colocar 100% hace ocupar toda la pantalla */
+    left: 0%;
+    
+}
+
+.menu__lista{
+    display: flex; /* Inicializa los flex box */
+    justify-content: space-around; /* Distribuye uniformemente el espacio entre los elementos dentro de un contenedor. */
+    height: 100%; /* Establece el máximo de la altura */
+}
+
+.menu__lista li{
+    align-self: center; /* Alinea individualmente un elemento dentro de un contenedor flex. */
+}
+
+.menu__itens{
+    display: flex; /* Inicializa los flex box */
+    flex-direction: column; /* Establce que los elementos hijos se coloquen uno sobre de otro */
+    gap: 5px; /* En el contexto de flexbox le da espacio entre los elemntos hijos del  flex container */ 
+}
+
+.menu__lista:nth-child(2), /* Selecciona al segundo elemento de la lista con clase menu__lista */
+.menu__lista:nth-child(3), /* Se utilizan estas pseudo clases para seleccionar elementos hermanos de un mismo container  */
+.menu__lista:nth-child(4){
+    display: none;
+}
+
+/* Sección superior */
+.superior__seccion__container{
+    display: flex; /* Inicializa los flex box */
+    align-items: center; /* Los elemntos se centran en el container */
+    white-space: nowrap; /* El texto no se envuelve, es decir no se quebra en varias líneas */
+    overflow: scroll; /* Agrega un scroll al container */
+    gap: 15px; /* En el contexto de flexbox le da espacio entre los elemntos hijos del  flex container */ 
+}
+
+
+
+/* Rodapié */
+.rodapie__container{
+    display: flex; /* Inicializa los flex box */
+    /* flex-direction: column ==>   Establce que los elementos hijos se coloquen uno sobre de otro */
+    /* flex-wrap: wrap ==>  Quebra las columnas en mas pequeñas */
+    flex-flow: column wrap; /* Combina flex-direction: column; + flex-wrap: wrap; */
+   
+}
+
+
+
+
+@media(min-width:834px){   /* Trabajando estilos con Media Queries, se restringe a que el míninmo de ancho de pantalla sea 834px */
+   /* Cabecera */
+    .cabecera__buscar__item{  /* Cumplida la condición se realiza el estilo */
+        display:block;
+    }
+
+    /* Rodapié */
+    .rodapie__container{
+        justify-content: space-between;  /* Los elementos se alinean con el mismo espaciado entre ellos */
+    }
+
+    /* Menú */
+    .menu__container {
+        position: fixed; /* Se fija la posición */
+        left: 0; /* Se posiciona a la izquierda */
+        top: 0; /* Se posiciona en la parte superior */
+        height: 100%; /* Establece el máximo de la altura */
+        width: 75px; /* Establece el ancho del menú */
+        display: flex; /* Inicializa los flex box */
+        flex-direction: column; /* Establece que los elementos se coloquen uno sobre otro */
+        }
+    
+        .menu__lista {
+        display: flex; /* Inicializa los flex box */
+        flex-direction: column; /* Establece que los elementos se coloquen uno sobre otro */
+        align-items: flex-start; /* Alinea los elementos al inicio del eje transversal (izquierda) */
+        }
+    
+        .menu__lista li {
+        margin: 5px 0; /* Espacio entre los elementos de la lista */            
+        }
+    
+}
+
+
+
+
+
+
+
+
+
