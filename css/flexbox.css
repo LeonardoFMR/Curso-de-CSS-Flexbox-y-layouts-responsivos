@@ -14,16 +14,14 @@
 
 /* Menú */
 .menu__container{
-    
     position: fixed; /* Se fija la posición */
     bottom: 0% ; /*Distancia con respecto al borde inferior de la página */
     height: 75px; /* Establece el máximo de la altura */
     width: 100%; /* Establece el máximo del ancho, en este caso al colocar 100% hace ocupar toda la pantalla */
-    left: 0%;
-    
+    gap: 10px; /* En el contexto de flexbox le da espacio entre los elemntos hijos del  flex container */ 
 }
 
-.menu__lista{
+.menu__lista {
     display: flex; /* Inicializa los flex box */
     justify-content: space-around; /* Distribuye uniformemente el espacio entre los elementos dentro de un contenedor. */
     height: 100%; /* Establece el máximo de la altura */
@@ -54,7 +52,18 @@
     gap: 15px; /* En el contexto de flexbox le da espacio entre los elemntos hijos del  flex container */ 
 }
 
+/* Sección videos */
+.videos__item{
+    height: 303; /* Establece el máximo de la altura */
+    width: 280px; /* Establece el ancho del menú */
+}
 
+.videos__container{
+  display: flex;
+  flex-wrap: wrap;  /* Quebra las columnas en mas pequeñas */
+  flex-grow: 1; /* crecerá en relación con los demás elementos, el espacio disponible se distribuirá de manera equitativa entre ellos. */
+
+}
 
 /* Rodapié */
 .rodapie__container{
@@ -68,43 +77,80 @@
 
 
 
-@media(min-width:834px){   /* Trabajando estilos con Media Queries, se restringe a que el míninmo de ancho de pantalla sea 834px */
+@media (min-width:834px){   /* Trabajando estilos con Media Queries, se restringe a que el míninmo de ancho de pantalla sea 834px */
    /* Cabecera */
     .cabecera__buscar__item{  /* Cumplida la condición se realiza el estilo */
-        display:block;
+        display: block;  /* Elimina el elemento de la disposición visual o del layout */
     }
 
+   /* Desafío Menú Lateral */
+    .menu__container {
+        position: fixed; /* Se fija la posición */
+        top: 80px; /* Se posiciona en la parte superior */
+        height: 100%; /* Establece el máximo de la altura */
+        width: 74px; /* Establece el ancho del menú */
+        display: flex; /* Inicializa los flex box */
+        flex-direction: column; /* Establece que los elementos se coloquen uno sobre otro */
+    }
+    
+    .menu__lista {
+        flex-direction: column; /* Establece que los elementos se coloquen uno sobre otro */
+        justify-content: flex-start;
+        padding-top: 15px; /* Espcacio alrededor del contenido de un elemento */
+        gap: 33px; /* En el contexto de flexbox le da espacio entre los elemntos hijos del  flex container */ 
+    }
+                     
     /* Rodapié */
     .rodapie__container{
         justify-content: space-between;  /* Los elementos se alinean con el mismo espaciado entre ellos */
     }
-
-    /* Menú */
-    .menu__container {
-        position: fixed; /* Se fija la posición */
-        left: 0; /* Se posiciona a la izquierda */
-        top: 0; /* Se posiciona en la parte superior */
-        height: 100%; /* Establece el máximo de la altura */
-        width: 75px; /* Establece el ancho del menú */
-        display: flex; /* Inicializa los flex box */
-        flex-direction: column; /* Establece que los elementos se coloquen uno sobre otro */
-        }
-    
-        .menu__lista {
-        display: flex; /* Inicializa los flex box */
-        flex-direction: column; /* Establece que los elementos se coloquen uno sobre otro */
-        align-items: flex-start; /* Alinea los elementos al inicio del eje transversal (izquierda) */
-        }
-    
-        .menu__lista li {
-        margin: 5px 0; /* Espacio entre los elementos de la lista */            
-        }
-    
 }
 
+@media(min-width:1440px){   
 
+    .menu__container {
+        width: 239px; /* Establece el máximo del ancho, en este caso al colocar 100% hace ocupar toda la pantalla */
+        overflow: scroll; /* Agrega un scroll al container */
+    }
 
+    .menu__lista:nth-child(2), /* Selecciona al segundo elemento de la lista con clase menu__lista */
+    .menu__lista:nth-child(3), /* Se utilizan estas pseudo clases para seleccionar elementos hermanos de un mismo container  */
+    .menu__lista:nth-child(4){
+        display: flex; /* Inicializa los flex box */
+    }
 
+    .menu__lista {
+        height: auto; /* Establece el máximo de la altura */
+        padding: 20px 17px 20px 15px; /* Espcacio alrededor del contenido de un elemento */
+        gap: 15px; /* En el contexto de flexbox le da espacio entre los elemntos hijos del  flex container */
+
+    }
+
+    .menu__lista:nth-child(3){
+        flex-direction: column-reverse; /* Establece que los elementos se coloquen uno sobre otro en columna con orden invertido*/
+    }
+
+    
+    .menu__itens{
+        flex-direction: row; /* Establece la directión de los flexbox en flecha horizontal de izquierda a derecha */
+        gap: 15px; /* En el contexto de flexbox le da espacio entre los elemntos hijos del  flex container */
+        align-items: center; /* Los elementos se centran en el container */
+    }
+
+   
+    .videojuegos{
+       order: 3;  /* Selecciona un elemento específicado por el número */
+    }
+
+    .peliculas{
+        order: 2;  /* Selecciona un elemento específicado por el número */
+     }
+     
+     .premium{
+        order: 1; /* Selecciona un elemento específicado por el número */
+     }
+
+}
 
 
 
